@@ -1,0 +1,11 @@
+dconf/
+gtk-3.0/
+nemo/
+neofetch/
+pacseek/
+pulse/
+systemd/
+teams-for-linux/
+yay/
+
+QtProject.conf
