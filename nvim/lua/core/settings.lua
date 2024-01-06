@@ -1,35 +1,47 @@
-vim.opt.nu = true  -- column numbers
-vim.opt.rnu = true  -- relative numbers
+local opt = vim.opt  -- for coniceness
+
+-- Numbers
+opt.number = true
+opt.relativenumber = true
 
 -- Indenting
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
 
-vim.opt.wrap = false  -- ??
+opt.wrap = false  -- ??
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
+
+-- Clipboard
+opt.clipboard:append("unnamedplus")
+
+-- Split Windows
+opt.splitright = true
+opt.splitbelow = true
 
 -- replace swap and backups with undotree
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
 
-vim.opt.hlsearch = false  -- removes highlight when closing search
-vim.opt.incsearch = true  -- incremental search /he*o 
+opt.hlsearch = false  -- removes highlight when closing search
+opt.incsearch = true  -- incremental search (searching "/he*o" would not work if false)
 
--- vim.opt.termguicolors = true
+opt.termguicolors = true
 
-vim.opt.scrolloff = 10  -- number of lines that remain visible when scrolling
--- vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@") -- ???
+opt.scrolloff = 10  -- number of lines that remain visible when scrolling
 
-vim.opt.updatetime = 50
+opt.updatetime = 50
 
-vim.opt.colorcolumn = "360"
+opt.colorcolumn = "100"
 
-vim.g.mapleader = " "
+-- NOTE - netrw may conflict with nvim-tree
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
