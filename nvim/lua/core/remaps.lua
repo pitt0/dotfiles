@@ -12,6 +12,12 @@ keymap.set("n", "<leader>sh", "<C-w>h")  -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=")  -- set windows width equal
 keymap.set("n", "<leader>sx", ":close<CR>")  -- close window
 
+-- Tabs
+keymap.set("n", "<leader>tt", ":tabnew<CR>")  -- open new tab
+keymap.set("n", "<leader>tx", ":tabclose<CR>")  -- close current tab
+keymap.set("n", "<leader>tn", ":tabnext<CR>")  -- goto next tab
+keymap.set("n", "<leader>tp", ":tabp<CR>")  -- goto prev tab
+
 -- Cursor
 keymap.set("n", "J", "mzJ`z")  -- append cursor line to the one above and keep the cursor in place
 keymap.set("n", "<C-d>", "<C-d>zz")  -- on <C-d> keep the cursor amid the screen
