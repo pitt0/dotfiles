@@ -9,28 +9,28 @@ return {
         local lspconfig = require('lspconfig')
 
         local opts = { noremaps = true, silent = true }
-        local on_attach = function(client, bufnr)
+        local on_attach = function(_, bufnr)
             opts.buffer = bufnr
 
             opts.desc = "Show references"
-            vim.keymap.set('n', "<lader>gg", "<cmd>Telescope lsp_references<cr>", opts)
+            vim.keymap.set('n', "<leader>gg", "<cmd>Telescope lsp_references<cr>", opts)
 
             opts.desc = "Goto Definition"
             vim.keymap.set('n', "<leader>df", vim.lsp.buf.declaration, opts)
 
             opts.desc = "Rename"
             vim.keymap.set('n', "<F2>", vim.lsp.buf.rename, opts)
-       end
+        end
 
-       local capabilities = require('cmp_nvim_lsp').default_capabilities()
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-       lspconfig["lua_ls"].setup({
-           capabilities = capabilities,
-           on_attach = on_attach,
-           settings = {
-               Lua = {
-                   diagnostics = {
-                       globals = { "vim" }
+        lspconfig["lua_ls"].setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        globals = { "vim" }
                     },
                     workspace = {
                         library = {
@@ -40,22 +40,26 @@ return {
                     }
                 }
             }
-       })
-       lspconfig.rust_analyzer.setup({
-           capabilities = capabilities,
-           on_attach = on_attach
-       })
-       lspconfig.asm_lsp.setup({
-           capabilities = capabilities,
-           on_attach = on_attach
-       })
-       lspconfig.ocamllsp.setup({
-           capabilities = capabilities,
-           on_attach = on_attach
-       })
-       lspconfig.taplo.setup({
-           capabilities = capabilities,
-           on_attach = on_attach
-       })
-   end,
+        })
+        lspconfig.pyright.setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+        lspconfig.asm_lsp.setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+        lspconfig.ocamllsp.setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+        lspconfig.taplo.setup({
+            capabilities = capabilities,
+            on_attach = on_attach
+        })
+    end,
 }
